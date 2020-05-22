@@ -1,13 +1,26 @@
 require 'pry'
 
 class Artist
+  extend Memorable::ClassMethods
+  include Paramable
+  include Memorable::InstanceMethods
+
+  #extend Memorable::ClassMethods
+    #extend Findable::ClassMethods
+  #  include Memorable::InstanceMethods
+  #  include Paramable::InstanceMethods
   attr_accessor :name
   attr_reader :songs
+
+  #extend Memorable::ClassMethods
+  #  include Memorable::InstanceMethods
+  #  extend Findable
+  #  include Paramable
 
   @@artists = []
 
   def initialize
-    @@artists << self
+    super
     @songs = []
   end
 
